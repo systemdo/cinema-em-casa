@@ -15,6 +15,9 @@ import { AvarageComponent } from './avarage/avarage.component';
 import { ChipsComponent } from './chips/chips.component';
 import { ViewDetailsMovieComponent } from './view-details-movie/view-details-movie.component';
 import { PaginationComponent } from './pagination/pagination.component';
+import { LoadComponent } from './load/load.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -25,14 +28,16 @@ import { PaginationComponent } from './pagination/pagination.component';
     AvarageComponent,
     ChipsComponent,
     ViewDetailsMovieComponent,
-    PaginationComponent
+    PaginationComponent,
+    LoadComponent
   ],
   imports: [
     BrowserModule,
     AppRouting,
     HttpModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [MoviesPageService],
   bootstrap: [AppComponent]

@@ -1,6 +1,14 @@
 <section class="content flex-center">  
-   
-    <div class="grid-flex flex-wrap">
+    <div class="grid-flex flex-center flex-wrap" [hidden]="!showMensagem">
+        <div class="grid-flex-child grid-flex-child-12 grid-pagination erro"> 
+            {{mensagemErro}}
+        </div>
+    </div>   
+    <div class="grid-flex-child grid-flex-child-12" [hidden]="!load">
+        <load [carregando]="load" [hidden]="!load"></load>
+    </div>
+
+    <div class="grid-flex flex-wrap" [hidden]="showMensagem">
       <header>
         <h2 class="grid-span span-titulo">{{movie?.title}}</h2>
         <span class="grid-span span-data" >{{dataFormatada}} </span>
@@ -46,7 +54,7 @@
                   </span>
               </article>
               <article class="chip">
-                  <chips [chip]="chip" *ngFor="let chip of movie.genres"></chips>
+                  <chips [chip]="chip" *ngFor="let chip of movie?.genres"></chips>
               </article>
               <article class="avarenge">
                   <avarage [diametro]="'150px'" [radio]="'75px'" [size]="'2.5em'" [border]="'solid 9px #00e8e4'" [valor]="movie?.vote_average"></avarage>

@@ -7,9 +7,11 @@
     width: 55px;
     height: 55px;
     padding: 2px;
-    display: inline-block;
     cursor: pointer;
-    line-height: 47px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1px;
     &:hover{
         box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
         transition: all 0.3s cubic-bezier(.25,.8,.25,1);
@@ -28,4 +30,21 @@
     font-weight: 600;
     text-align: center;
     font-size: 1.1em;
+    display:inline-flex;
+    justify-content: center;
+    align-items: center;
 }  
+
+
+/* Telefones em paisagem a tablet em retrato */
+@media (max-width: 767px) {
+    .primary-circulo {
+        
+        border-radius: 30px;
+        width: 30px;
+        height: 30px;
+        padding: 2px;
+        line-height: 0px;
+       
+    }
+}

@@ -13,6 +13,9 @@ export class ViewDetailsMovieComponent implements OnInit {
   movie;
   mensagemErro;
   videos: any;
+  load: boolean;
+  showMensagem: boolean; 
+
   constructor( 
     private router: Router, 
     private activatedRoute: ActivatedRoute, 
@@ -20,21 +23,35 @@ export class ViewDetailsMovieComponent implements OnInit {
     private _sanitizer: DomSanitizer) { }
 
   findMovie(id){
+    this.load = true;
+    this.showMensagem = false;
     this.moviesPageService.findMovie(id).subscribe(
       movie =>{
         this.movie = movie;
-        this.findVideo(this.movie.id);
+        console.log(this.movie);
+        if(this.movie != undefined){
+          this.findVideo(this.movie.id);
+        }
+        this.load = false;
+        if ( this.movie.length == 0){
+          this.mensagemErro = "Não foi encontrado nenhum filme com o termo buscado :)";
+          this.showMensagem = true;
+        }  
       },
       error => {
+        this.load = false;
         this.mensagemErro = 'Ocorreu um erro, tente novamente, mais tarde';
+        this.showMensagem = true;
       }
     );
   }
 
   get dataFormatada(){
-    if(this.movie.release_date != ''){
-      const dataFormatada = this.movie.release_date.split('-');
-      return dataFormatada[2] + '/' + dataFormatada[1] + '/' +dataFormatada[0]; 
+    if(this.movie != undefined){
+      if(this.movie.release_date != ''){
+        const dataFormatada = this.movie.release_date.split('-');
+        return dataFormatada[2] + '/' + dataFormatada[1] + '/' +dataFormatada[0]; 
+      }
     }
     return ;
   }

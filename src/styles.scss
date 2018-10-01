@@ -40,6 +40,11 @@ $secondary-text-color: #00e8e4;
     max-width: 100%;
 }
 
+.erro{
+    font-size: 1em;
+    color: $primary-text-color;
+}
+
 
 /* Telefones em paisagem e abaixo */
 @media (max-width: 480px) { 

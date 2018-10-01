@@ -13,16 +13,15 @@ export class PaginationComponent implements OnInit {
   constructor() { }
 
   select(){
+    console.log(this.page);
     this.onPage.emit(this.page);
   }
   ngOnInit() {
-    console.log(this.pageSelecionada, 'pageSelecionada');
     if(this.page == this.pageSelecionada){
         this.selecionado = true;
     }else{
       this.selecionado = false;
     }
-    console.log(this.page,'page');
   }
 
 }

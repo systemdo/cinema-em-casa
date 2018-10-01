@@ -7,7 +7,7 @@ import { MoviesPageService } from '../movies-page/movies-page.service';
   styleUrls: ['./movies-page.component.scss']
 })
 export class MoviesPageComponent implements OnInit {
-  search = 'atlas';
+  search = '';
   pageAtual = 1;
   mensagemErro;
   movies = new Array<any>();
@@ -15,17 +15,22 @@ export class MoviesPageComponent implements OnInit {
   totalMovies = 0;
   genres = new Array<any>();
   pages =  new Array<any>();
+  load: boolean;
+  showMensagem: boolean; 
 
   constructor(
     private moviesPageService: MoviesPageService
   ) { }
 
   searchMovies(){
-    if (this.search.length > 3)  
+    if (this.search.length > 2)  
       this.getMovies(this.search);
   }
 
   getMovies(query){
+
+    this.load = true;
+    this.showMensagem = false;
     this.moviesPageService.getMovies(query, this.pageAtual).subscribe(
       movies =>{
         this.movies = movies.results;
@@ -34,11 +39,20 @@ export class MoviesPageComponent implements OnInit {
         this.pageAtual = movies.page;
         this.getAllGenres();
         this.getPages();
+        this.load = false;
+        if ( this.movies.length == 0){
+          this.mensagemErro = "Não foi encontrado nenhum filme com o termo buscado :)";
+          this.showMensagem = true
+        }  
       },
       error => {
         this.mensagemErro = 'Ocorreu um erro, tente novamente, mais tarde';
+        this.load = false;
+        this.showMensagem = true;
       }
     );
+
+  
   }
 
   getGenres(){
@@ -82,7 +96,7 @@ export class MoviesPageComponent implements OnInit {
 
   ngOnInit() {
     this.getGenres();
-    this.searchMovies();
+
   }
 
 }
