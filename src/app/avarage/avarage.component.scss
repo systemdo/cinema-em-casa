@@ -1,0 +1,24 @@
+@import '../../styles.scss';
+
+.primary-circulo {
+    background-color: $primary-color;
+    color: $secondary-text-color;
+    border-radius: 30px;
+    width: 55px;
+    height: 55px;
+    padding: 2px;
+    display: inline-block;
+    
+}
+
+.secundary-circulo {
+    background-color: inherit;
+    color: inherit;
+    border-radius: inherit;
+    border: solid 3px $secondary-text-color;
+    width: 100%;
+    height: 100%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}

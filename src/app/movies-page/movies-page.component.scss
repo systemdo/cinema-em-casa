@@ -1,0 +1,27 @@
+@import '../../styles.scss';
+
+.grid-flex-child{
+   padding: 5px;
+}
+
+.search{
+    font: inherit;
+    background: 0 0;
+    border: none;
+    outline: 0;
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    cursor: pointer;
+    padding: 7px 25px;
+    border-radius: 35px;
+    background-color:$secondary-color;
+    color: $primary-text-color;
+    box-sizing: border-box;
+
+}
+
+.grid-pagination{
+    text-align: center;
+    align-items: center;
+}

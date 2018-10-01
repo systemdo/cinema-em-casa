@@ -1,0 +1,24 @@
+<div title="clique para ver detalhe completo do filme" class="card-movie" [routerLink]="['movie',movie.id]">
+  <div class="img-movie">
+    <img [src]="'https://image.tmdb.org/t/p/w185_and_h278_bestv2'+movie?.backdrop_path">
+  </div>
+  <div class="content-movie">
+    <header>
+      <div class="header-title">
+        <span class="avarage">
+          <avarage [valor]="movie?.vote_average"></avarage>
+        </span>
+        <h2 class="text-titulo">{{movie?.title}}</h2>
+      </div>
+      <div class="data">
+        {{dataFormatada}}
+      </div>
+    </header>
+    <article>
+      <p class="overview">{{movie?.overview}}</p>
+      <p class="chips">
+          <chips [chip]="chip" *ngFor="let chip of movie.genres"></chips>
+      </p>
+    </article>  
+  </div>
+</div>

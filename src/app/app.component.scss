@@ -1,0 +1,37 @@
+@import '../styles.scss';
+
+header {
+    background-color: $primary-color;
+    font-size: 2em;
+    color: $secondary-text-color;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.content{
+    justify-content: center;
+    display: flex;
+    width: 100%;
+    flex-direction: column; 
+    padding: 16px;
+}
+
+footer{
+    width: 100%;
+    display: flex;
+    background-color: $primary-color;  
+    color: $secondary-text-color; 
+    justify-content: center; 
+    position: fixed;
+    height: 50px;
+    bottom: 0;
+    padding: 16px;
+    align-items: center;
+}
+@media (max-width: 480px) { 
+    header{
+        font-size: 1.5em;
+    }
+}
+

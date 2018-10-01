@@ -1,0 +1,19 @@
+<div class="content flex-center">  
+  <div class="grid-flex">
+    <input class="search" [(ngModel)]="search"  (keyup)="searchMovies()" placeholder="Busque um filme por nome, ano ou gênero...">
+  </div>
+  <div class="grid-flex flex-center flex-wrap" *ngIf="movies.length > 0; else movieTemplate">
+      <div class="grid-flex-child grid-flex-child-12 grid-pagination">
+          <pagination (onPage)="searchByPage($event)" [pageSelecionada]="pageAtual" [page]="page.page" *ngFor="let page of pages;"></pagination>
+      </div>
+      <div class="grid-flex-child grid-flex-child-6" *ngFor="let movie of movies;">
+        <card-movies  [movie]="movie"></card-movies>
+      </div>
+      <div class="grid-flex-child grid-flex-child-12 grid-pagination">
+          <pagination (onPage)="searchByPage($event)" [pageSelecionada]="pageAtual" [page]="page.page" *ngFor="let page of pages;"></pagination>
+      </div>
+  </div>
+  <ng-template #movieTemplate> 
+    Não foi encontrado nenhum filme com o termo buscado :)
+  </ng-template>
+</div>  

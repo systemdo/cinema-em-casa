@@ -1,0 +1,73 @@
+$primary-color: #116193;
+$secondary-color:#ebebeb;
+
+$primary-text-color: #7a7a7a;
+$secondary-text-color: #00e8e4;
+
+
+.content{
+    display: flex;
+    max-width: 100%;
+    overflow: hidden;
+    padding: 16px;
+    flex-direction: column;
+}
+
+.grid-flex{
+    display: flex;
+    max-width: 100%;
+    padding: 16px;
+}
+
+.flex-center{
+    justify-content: center;
+}
+
+.flex-posicao-column{
+    flex-direction: column;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+} 
+.grid-flex-child-6{
+    flex:50%;
+    max-width: 50%;
+}
+
+.grid-flex-child-12{
+    flex:100%;
+    max-width: 100%;
+}
+
+
+/* Telefones em paisagem e abaixo */
+@media (max-width: 480px) { 
+    .grid-flex-child-6{
+        flex: 1;
+        min-width: 100%;
+    }
+    .grid-flex, .content{
+        padding: 0;
+    }
+}
+
+/* Telefones em paisagem a tablet em retrato */
+@media (max-width: 767px) {
+    .grid-flex-child-6{
+        flex: 1;
+        min-width: 100%;
+    }
+}
+
+/* Tablet em retrato a paisagem e desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+    /* estilos aqui */
+}
+
+/* Desktop grande */
+@media (min-width: 1200px) {
+   /* estilos aqui */
+}
+
+
