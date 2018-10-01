@@ -53,7 +53,7 @@ $secondary-text-color: #00e8e4;
         min-width: 100%;
     }
     .grid-flex, .content{
-        padding: 0;
+        padding: 2px 0;
     }
 }
 
@@ -75,4 +75,26 @@ $secondary-text-color: #00e8e4;
    /* estilos aqui */
 }
 
+button{
+    box-sizing: border-box;
+    position: relative;
+    user-select: none;
+    cursor: pointer;
+    outline: 0;
+    border: none;
+    display: inline-block;
+    white-space: nowrap;
+    text-decoration: none;
+    vertical-align: baseline;
+    text-align: center;
+    margin: 0;
+    min-width: 88px;
+    line-height: 36px;
+    padding: 0 16px;
+    border-radius: 2px;
+    overflow: visible;
+    transform: translate3d(0,0,0);
+    transition: background .4s cubic-bezier(.25,.8,.25,1),box-shadow 280ms cubic-bezier(.4,0,.2,1);
+
+}
 

@@ -1,6 +1,13 @@
+<section class="content flex-center">
+        <div class="grid-flex flex-center flex-wrap" [hidden]="!showMensagem">
+                <div class="grid-flex-child grid-flex-child-12 btn-voltar"> 
+                    <button routerLink="/">Voltar</button>
+                </div>
+            </div>        
+</section>  
 <section class="content flex-center">  
     <div class="grid-flex flex-center flex-wrap" [hidden]="!showMensagem">
-        <div class="grid-flex-child grid-flex-child-12 grid-pagination erro"> 
+        <div class="grid-flex-child grid-flex-child-12 erro"> 
             {{mensagemErro}}
         </div>
     </div>   
@@ -23,35 +30,36 @@
               <article class="artigo-informacao">
                   <h2 class="titulo-artigo">Informações</h2>
                   <hr>
-                  <div class="grid-mini-info"></div>
-                  <span class="mini-info">
-                      <p>Situação
-                    
-                    {{movie?.status}}
-                  </span>
-                  <span class="mini-info">
-                      <p>Idioma</p>
-                      
-                      {{movie?.original_language}}
-                  </span>
-                  <span class="mini-info">
-                      <p>Orçamento</p>
-                      
-                      {{movie?.runtime}}
-                  </span>
-                  <span class="mini-info">
-                      <p>Orçamento</p>
-                      {{movie?.budget}}
-                  </span>
-                  <span class="mini-info">
-                      <p>Orçamento</p> 
-                      
-                      {{movie?.revenue}}
-                  </span>
-                  <span class="mini-info">
-                      <p>Orçamento</p>
-                      {{movie?.revenue}}
-                  </span>
+                  <div class="grid-mini-info">
+                    <span class="mini-info">
+                        <p class="mini-info-titulo">Situação</p>
+                        
+                        <p class="mini-info-valor">{{movie?.status}}</p>
+                    </span>
+                    <span class="mini-info">
+                        <p class="mini-info-titulo">Idioma</p>
+                        
+                        <p class="mini-info-valor">{{idioma}}</p>
+                    </span>
+                    <span class="mini-info">
+                        <p class="mini-info-titulo">Duração</p>
+                        
+                        <p class="mini-info-valor">{{movie?.runtime}}</p>
+                    </span>
+                    <span class="mini-info">
+                        <p class="mini-info-titulo">Orçamento</p>
+                        <p class="mini-info-valor number">{{converterNumber(movie?.budget)}}</p>
+                    </span>
+                    <span class="mini-info">
+                        <p class="mini-info-titulo">Receita</p> 
+                        
+                        <p class="mini-info-valor number">{{converterNumber(movie?.revenue)}}</p>
+                    </span>
+                    <span class="mini-info">
+                        <p class="mini-info-titulo">Lucro</p>
+                        <p class="mini-info-valor number">{{converterNumber(movie?.revenue)}}</p>
+                    </span>
+                </div>
               </article>
               <article class="chip">
                   <chips [chip]="chip" *ngFor="let chip of movie?.genres"></chips>
@@ -62,8 +70,8 @@
                     
           </div>
           <div class="grid-img" >
-              <img [src]="'https://image.tmdb.org/t/p/w185_and_h278_bestv2'+movie?.backdrop_path">
-          </div>
+                <img src="{{imagePath}}">          
+            </div>
       </div>
            
         

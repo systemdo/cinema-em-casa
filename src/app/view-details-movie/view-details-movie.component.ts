@@ -28,7 +28,6 @@ export class ViewDetailsMovieComponent implements OnInit {
     this.moviesPageService.findMovie(id).subscribe(
       movie =>{
         this.movie = movie;
-        console.log(this.movie);
         if(this.movie != undefined){
           this.findVideo(this.movie.id);
         }
@@ -72,6 +71,54 @@ export class ViewDetailsMovieComponent implements OnInit {
           }
         );
   }
+
+  get imagePath(){
+    if(this.movie != undefined){
+      if ( this.movie.backdrop_path != undefined && this.movie.backdrop_path != '' && this.movie.backdrop_path != null){
+        return 'https://image.tmdb.org/t/p/w185_and_h278_bestv2'+this.movie.backdrop_path
+      }
+    }
+    
+    return 'assets/moviedefault.jpg';
+  }
+
+  converterNumber(numero): any{
+    if(numero != undefined) {
+      const formatado = "$ " + numero.toFixed(2).replace(",",".");
+      return formatado;
+    }
+    return '';
+  }
+
+  get idioma(){
+    let lang = '';
+    if(this.movie!= undefined) {
+      switch (this.movie.original_language.toLowerCase()) {
+        case 'de':
+          lang = 'Alemão';
+        break;
+        case 'es':
+          lang = 'Espanhol';
+          break;
+        case 'br':
+          lang = 'Português';
+          break;
+        default:
+          lang = 'Inglês';
+          break;
+      }
+    }
+    return lang ;
+  }
+
+  get duracao(): any{
+    if(this.movie != undefined) {
+      const array: Array<any> = this.movie.runtime.split('');
+      return array[0] + 'h '+ array[1]+array[2]+' min';  
+    }
+    return '';
+  }
+
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(params=>{

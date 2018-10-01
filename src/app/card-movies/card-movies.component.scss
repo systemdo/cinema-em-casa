@@ -83,3 +83,10 @@ article{
 .chips{
     display: flex;
 }
+
+@media (max-width: 767px) {
+    .text-titulo{
+        font-size: 1.5em;
+    }
+}
+

@@ -6,13 +6,13 @@
       <div class="grid-flex-child grid-flex-child-12">
         <load [carregando]="load" [hidden]="!load"></load>
       </div>
-      <div class="grid-flex-child grid-flex-child-12 grid-pagination">
+      <div class="grid-flex-child grid-flex-child-12 grid-pagination" *ngIf="totalPages.length > 1">
           <pagination (onPage)="searchByPage($event)" [pageSelecionada]="pageAtual" [page]="page.page" *ngFor="let page of pages;"></pagination>
       </div>
       <div class="grid-flex-child grid-flex-child-6" *ngFor="let movie of movies;">
         <card-movies  [movie]="movie"></card-movies>
       </div>
-      <div class="grid-flex-child grid-flex-child-12 grid-pagination">
+      <div class="grid-flex-child grid-flex-child-12 grid-pagination" *ngIf="totalPages.length > 1">
           <pagination (onPage)="searchByPage($event)" [pageSelecionada]="pageAtual" [page]="page.page" *ngFor="let page of pages;"></pagination>
       </div>
   </div>

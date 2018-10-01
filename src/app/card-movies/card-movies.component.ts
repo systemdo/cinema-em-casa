@@ -17,6 +17,13 @@ export class CardMoviesComponent implements OnInit {
     return ;
   }
 
+  get imagePath(){
+    if ( this.movie.backdrop_path != undefined && this.movie.backdrop_path != '' && this.movie.backdrop_path != null){
+      return 'https://image.tmdb.org/t/p/w185_and_h278_bestv2'+this.movie.backdrop_path
+    }
+    return 'assets/moviedefault.jpg';
+  }
+
 
   ngOnInit() {
   }
